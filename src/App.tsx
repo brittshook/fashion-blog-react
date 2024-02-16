@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { BlogPost } from "./components/BlogPost";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const posts = [
+    {
+      date: "11/12/20",
+      title: "On the Street in Brooklyn",
+      imgPath: "imgs/blog-image-1.jpg",
+      altText: "Brooklyn, NYC",
+      text: "Cray ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aperiam quam minima repellendus quasi repellat placeat officiis. Delectus, quo nemo in exercitationem consectetur iste deserunt assumenda soluta culpa necessitatibus molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, aperiam quam minima repellendus quasi repellat placeat officiis. Delectus, quo nemo in exercitationem consectetur iste deserunt assumenda soluta culpa necessitatibus molestias.",
+    },
+    {
+      date: "11/11/20",
+      title: "Vintage in Vogue",
+      imgPath: "imgs/blog-image-2.jpg",
+      altText: "3 models",
+      text: "Selfies ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quas fugit minima aliquid, inventore tempore illum cumque illo sunt modi ipsa omnis nulla fuga alias autem eveniet. Dolorem, error magni. Selfies ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quas fugit minima aliquid, inventore tempore illum cumque illo sunt modi ipsa omnis nulla fuga alias autem eveniet. Dolorem, error magni.",
+    },
+  ];
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <main>
+        {posts.map((post, i) => (
+          <BlogPost
+            date={post.date}
+            title={post.title}
+            imgPath={post.imgPath}
+            altText={post.altText}
+          >
+            {post.text}
+          </BlogPost>
+        ))}
+      </main>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
