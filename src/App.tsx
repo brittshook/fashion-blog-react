@@ -26,6 +26,7 @@ function App() {
       <main>
         {posts.map((post, i) => (
           <BlogPost
+            key={i}
             date={post.date}
             title={post.title}
             imgPath={post.imgPath}
