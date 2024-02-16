@@ -120,3 +120,8 @@ footer > * {
 footer {
   padding-bottom: 30px;
 }
+
+nav,
+footer > div:first-child {
+  flex-wrap: wrap;
+}
